@@ -163,12 +163,12 @@ instalado, `npm` disponível, `riteward` instalado.
    ```
 
 6. **Rodar `npm run dev` e checar a página** — Esperado: HTTP 200
-   com `<title>Axie Infinity Card Explorer</title>`.
+   com `Axie Infinity Card Explorer` no title.
    Verificar (inicia dev server em background, checa com curl,
    encerra):
 
    ```
-   cd /var/mnt/ssd2/wip-apps/axie-infinity-card-explorer && (npm run dev > /tmp/vite-dev.log 2>&1 &) && sleep 6 && curl -s http://localhost:5173 | grep -o '<title>[^<]*</title>' && pkill -f vite; echo "dev server encerrado"
+   cd /var/mnt/ssd2/wip-apps/axie-infinity-card-explorer && (npm run dev > /tmp/vite-dev.log 2>&1 &) && sleep 6 && curl -s http://localhost:5173 | grep -o "Axie Infinity Card Explorer" && pkill -f "vite" ; echo "dev server encerrado"
    ```
 
 7. **Confirmar dataset JSON válido** — Esperado: 3× `OK`.

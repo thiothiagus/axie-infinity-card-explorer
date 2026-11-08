@@ -2,7 +2,7 @@
 id: task-001
 title: Bootstrap do scaffold React + Vite + TypeScript (package.json, src/,
   dataset JSON de cartas, ícones)
-status: in_progress
+status: done
 priority: 80
 created_at: 2026-11-08
 ---
