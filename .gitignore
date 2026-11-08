@@ -9,6 +9,13 @@ node_modules/
 
 # Builds
 dist/
+dist-node/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Arquivos locais (env)
+*.local
 
 # Placeholder files
 .gitkeep

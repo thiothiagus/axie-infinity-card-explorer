@@ -15,14 +15,13 @@ gerações:
 
 ## Como rodar
 
-_O scaffold React + Vite ainda não foi criado (próxima task). Quando
-existir, os comandos serão:_
-
 ```bash
 npm install        # instala dependências
-npm run dev        # dev server (Vite)
+npm run dev        # dev server (Vite) — localhost:5173
 npm run build      # build de produção
-npm test           # testes
+npm test           # vitest run
+npm run lint       # eslint
+npm run typecheck  # tsc --noEmit
 ```
 
 ## Governança
