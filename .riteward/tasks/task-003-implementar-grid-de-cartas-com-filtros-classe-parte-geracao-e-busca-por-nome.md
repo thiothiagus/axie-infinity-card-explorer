@@ -1,7 +1,8 @@
-﻿---
+---
 id: task-003
-title: Implementar grid de cartas com filtros (classe, parte, geração) e busca por nome
-status: in_progress
+title: Implementar grid de cartas com filtros (classe, parte, geração) e busca
+  por nome
+status: done
 priority: 80
 created_at: 2026-11-08
 ---
