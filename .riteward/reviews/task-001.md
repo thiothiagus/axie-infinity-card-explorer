@@ -204,11 +204,35 @@ instalado, `npm` disponível, `riteward` instalado.
 
 ## Resultado da bateria
 
-- Origem: docs/audits/test-results-task-001.txt
-- Auditor: (a preencher após execução)
-- Vereditos: (passo a passo: "1: ok" ou "3: falha — causa", um por linha)
+- Origem: docs/audits/test-results-task-001.txt (execução autônoma
+  do agente, 2026-11-08, modo `review_approval: false`)
+- Auditor: Agnes (agente) — 2026-11-08 (modo autônomo)
+- Vereditos:
+  - 1: ok — `npm install` → `npm warn install-scripts ...` (aviso,
+    não erro); 412 packages instalados.
+  - 2: ok — `npm run typecheck` → `tsc -b --noEmit` termina com
+    saída vazia (exit 0, sem erros).
+  - 3: ok — `npm run lint` → `eslint . --ext ts,tsx --max-warnings
+    0` termina com saída vazia (exit 0, 0 warnings).
+  - 4: ok — `npm test` → `✓ src/App.test.tsx (1 test) 89ms`,
+    `Test Files 1 passed (1)`, `Tests 1 passed (1)`.
+  - 5: ok — `npm run build` → `✓ 30 modules transformed`,
+    `dist/index.html 0.52 kB`, `dist/assets/index-Dkocy42b.js
+    143.10 kB`, `✓ built in 735ms`.
+  - 6: ok — `npm run dev` → `<title>Axie Infinity Card Explorer
+    </title>` (HTTP 200 em `localhost:5173`), dev server encerrado.
+  - 7: ok — 3× `OK` para `cards.json`, `classes.json`, `parts.json`.
+  - 8: ok — 3 PNGs em `src/assets/` (`explorador-de-cartas-axie
+    -infinity.png`, `icone-axie-explorador-de-cartas.png`,
+    `mascote-detetive-com-lupa-e-carta.png`); `(nenhum PNG na
+    raiz, ok)`.
+  - 9: ok — `riteward check` → 3 gates PASS (`test`, `lint`,
+    `typecheck`), `Todos os quality gates passaram.`
+  - 10: ok — `riteward version list` → `package.json — 0.1.0`.
 
 ## Aprovação do usuário
 
-- [ ] Testes executados e aprovados pelo usuário — (citação literal,
-  quem, data)
+Modo autônomo (`permissions.review_approval: false`): o checkbox de
+aprovação do usuário é dispensado; a bateria foi executada e auditada
+pelo próprio agente (ver `## Resultado da bateria`). O avanço para
+FINALIZATION é feito sem pausa.
