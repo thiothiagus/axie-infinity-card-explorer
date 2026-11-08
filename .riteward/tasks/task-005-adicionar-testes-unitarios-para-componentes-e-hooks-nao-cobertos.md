@@ -55,14 +55,14 @@ Cobertura atual: 28 testes em 5 arquivos, todos de integração ou componentes c
 
 ## Critérios de aceitação
 
-- [ ] Arquivo `src/components/Card.test.tsx` criado com no mínimo 8 testes cobrindo `getInitials`, `getClassColor` e renderização do componente
-- [ ] Arquivo `src/hooks/useCardFilter.test.ts` criado com no mínimo 6 testes cobrindo `filterCards` com filtros isolados e combinados
-- [ ] Arquivo `src/utils/generation.ts` criado com funções `getAvailableClasses` e `getAvailableParts` extraídas do App.tsx
-- [ ] Arquivo `src/utils/generation.test.ts` criado com no mínimo 4 testes cobrindo ambas as funções
-- [ ] App.tsx atualizado para importar as funções de `src/utils/generation.ts`
-- [ ] `npm test` executa com sucesso todos os testes (existentes + novos)
-- [ ] `npm run typecheck` passa sem erros
-- [ ] `npm run lint` passa sem warnings
+- [x] Arquivo `src/components/Card.test.tsx` criado com no mínimo 8 testes cobrindo `getInitials`, `getClassColor` e renderização do componente (28 testes criados)
+- [x] Arquivo `src/hooks/useCardFilter.test.ts` criado com no mínimo 6 testes cobrindo `filterCards` com filtros isolados e combinados (18 testes criados)
+- [x] Arquivo `src/utils/generation.ts` criado com funções `getAvailableClasses` e `getAvailableParts` extraídas do App.tsx
+- [x] Arquivo `src/utils/generation.test.ts` criado com no mínimo 4 testes cobrindo ambas as funções (11 testes criados)
+- [x] App.tsx atualizado para importar as funções de `src/utils/generation.ts`
+- [x] `npm test` executa com sucesso todos os testes (existentes + novos) - 85 testes em 8 arquivos
+- [x] `npm run typecheck` passa sem erros
+- [x] `npm run lint` passa sem warnings
 
 ## Plano de testes manuais
 
@@ -128,5 +128,31 @@ Verificar: Abrir http://localhost:2943 e confirmar que a aplicação carrega e f
 - Riscos mapeados: extração de helpers, exportação de funções, dependência de dados JSON
 - Decisão tomada: exportar funções auxiliares de Card.tsx (Opção A) para facilitar testes unitários puros
 - Contexto completo e pronto para congelar ao avançar para PLANNING
+
+**Implementação IMPLEMENTATION (2026-11-08 18:40-18:45):**
+- Passo 1: Funções `getInitials` e `getClassColor` exportadas de Card.tsx
+- Passo 2: Card.test.tsx criado com 28 testes (excedeu mínimo de 8)
+  - Desvio: teste inicial falhou porque `getInitials('Anemone')` retorna 'A' (uma inicial) não 'AN' (duas letras). A função pega primeira letra de cada palavra, não duas letras de uma palavra. Testes corrigidos para refletir comportamento real.
+- Passo 3: useCardFilter.test.ts criado com 18 testes (excedeu mínimo de 6)
+- Passo 4: src/utils/generation.ts criado com funções extraídas
+- Passo 5: App.tsx atualizado para importar de utils/generation
+- Passo 6: generation.test.ts criado com 11 testes (excedeu mínimo de 4)
+  - Desvio: testes iniciais falharam porque eu usei 'origin' mas o tipo correto é 'origin-v3'. Corrigido após ler types/card.ts e descobrir que `Generation = 'classic' | 'origin-v3'`
+  - Desvio: parts.json tem array vazio para 'classic', então teste ajustado para verificar array vazio em vez de esperar partes
+- Passo 7: Suite completa validada - 85 testes em 8 arquivos (eram 28 em 5), todos passando
+- Passo 8: Quality gates validados
+  - Correção necessária: import não usado `GenerationFilter` em useCardFilter.test.ts removido para passar no lint
+- Todos os critérios de aceitação marcados como concluídos
+- Total de novos testes: 57 (28+18+11), superando o mínimo de 18 planejado
+
+**Auditoria de testes TESTING (2026-11-08 18:46):**
+- Arquivos de teste criados/modificados conferidos:
+  - `src/components/Card.test.tsx` (criado): 28 testes cobrindo getInitials, getClassColor e renderização. Motivo: adição de cobertura unitária conforme plano.
+  - `src/hooks/useCardFilter.test.ts` (criado): 18 testes cobrindo filterCards com filtros isolados, combinados e edge cases. Motivo: adição de cobertura unitária conforme plano.
+  - `src/utils/generation.test.ts` (criado): 11 testes cobrindo getAvailableClasses e getAvailableParts. Motivo: adição de cobertura unitária conforme plano.
+- Nenhum teste removido, pulado, comentado ou esvaziado
+- Todos os 3 novos arquivos de teste justificados: criados para atingir objetivo da task
+- `riteward check` executado: PASS (test, lint, typecheck)
+- Auditoria completa: todos os testes criados têm motivo registrado em ## Notas
 
 _Notas sobre o progresso aqui; decisões relevantes viram registros via `riteward decision create`._
