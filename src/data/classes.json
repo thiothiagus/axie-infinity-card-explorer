@@ -1,0 +1,10 @@
+[
+  {
+    "generation": "classic",
+    "classes": ["Plant", "Bird", "Aquatic", "Bug", "Reptile", "Beast"]
+  },
+  {
+    "generation": "origin-v3",
+    "classes": ["Aqua", "Beast", "Bird", "Bug", "Plant", "Reptile"]
+  }
+]

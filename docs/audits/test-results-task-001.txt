@@ -1,0 +1,76 @@
+# Bateria de testes — task-001 (execução autônoma do agente, 2026-11-08, modo review_approval: false)
+
+== 1. npm install ==
+npm warn install-scripts   esbuild@0.21.5 (postinstall: node install.js)
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+
+== 2. npm run typecheck ==
+
+> axie-infinity-card-explorer@0.1.0 typecheck
+> tsc -b --noEmit
+
+
+== 3. npm run lint ==
+
+> axie-infinity-card-explorer@0.1.0 lint
+> eslint . --ext ts,tsx --max-warnings 0
+
+
+== 4. npm test ==
+
+ ✓ src/App.test.tsx  (1 test) 89ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  11:40:47
+   Duration  970ms (transform 48ms, setup 64ms, collect 124ms, tests 89ms, environment 400ms, prepare 95ms)
+
+
+== 5. npm run build ==
+✓ 30 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  0.52 kB │ gzip:  0.33 kB
+dist/assets/index-Dkocy42b.js  143.10 kB │ gzip: 46.07 kB
+✓ built in 735ms
+
+== 6. npm run dev (checar titulo) ==
+<title>Axie Infinity Card Explorer</title>
+dev server encerrado
+
+== 7. dataset JSON valido ==
+== src/data/cards.json ==
+OK
+== src/data/classes.json ==
+OK
+== src/data/parts.json ==
+OK
+
+== 8. PNGs movidos ==
+explorador-de-cartas-axie-infinity.png
+icone-axie-explorador-de-cartas.png
+mascote-detetive-com-lupa-e-carta.png
+(nenhum PNG na raiz, ok)
+
+== 9. riteward check ==
+
+> axie-infinity-card-explorer@0.1.0 lint
+> eslint . --ext ts,tsx --max-warnings 0
+
+Resultado: PASS
+Gate: typecheck - Comando: npm run typecheck
+
+> axie-infinity-card-explorer@0.1.0 typecheck
+> tsc -b --noEmit
+
+Resultado: PASS
+Todos os quality gates passaram.
+
+== 10. riteward version list ==
+riteward version list
+
+Arquivos de versão:
+  package.json — 0.1.0
+
+Bump: riteward version bump --level <patch|minor|major> [--dry-run]

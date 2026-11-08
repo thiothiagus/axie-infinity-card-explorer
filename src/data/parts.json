@@ -1,0 +1,10 @@
+[
+  {
+    "generation": "classic",
+    "parts": []
+  },
+  {
+    "generation": "origin-v3",
+    "parts": ["Ears", "Eyes", "Tail", "Horn", "Mouth", "Back"]
+  }
+]

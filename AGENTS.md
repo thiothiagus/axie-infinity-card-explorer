@@ -20,17 +20,18 @@ gerações:
 - **Frontend**: React + Vite + TypeScript
 - **Dados**: JSON local em `src/data/` (cartas, stats, classes, partes),
   sem dependência de backend
-- **Ícones**: PNGs provisórios na raiz (`Ícone Axie Explorador de Cartas.png`,
-  `Mascote Detetive com Lupa e Carta.png`,
-  `Explorador de Cartas Axie Infinity.png`)
+- **Ícones**: PNGs em `src/assets/`:
+  - `icone-axie-explorador-de-cartas.png`
+  - `mascote-detetive-com-lupa-e-carta.png`
+  - `explorador-de-cartas-axie-infinity.png`
 
 ## Comandos essenciais
 
-A definir no bootstrap do scaffold React (próxima task):
-
 ```bash
 npm install        # instala dependências
-npm run dev        # dev server (Vite)
-npm run build      # build de produção
-npm test           # testes
+npm run dev        # dev server (Vite) — localhost:5173
+npm run build      # build de produção (tsc -b && vite build)
+npm test           # vitest run
+npm run lint       # eslint
+npm run typecheck  # tsc -b --noEmit
 ```

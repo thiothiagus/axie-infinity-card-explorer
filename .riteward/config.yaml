@@ -4,12 +4,18 @@ project:
   language: typescript
   packageManager: npm
   scripts:
-    test: null
-    lint: null
-    typecheck: null
+    test: "npm test"
+    lint: "npm run lint"
+    typecheck: "npm run typecheck"
 workflow:
   default: task
-quality_gates: []
+quality_gates:
+  - name: "test"
+    command: "npm test"
+  - name: "lint"
+    command: "npm run lint"
+  - name: "typecheck"
+    command: "npm run typecheck"
 permissions:
   push: false
   commit: false
@@ -42,9 +48,8 @@ logs:
 
 # version_files: arquivos que guardam a versão do projeto-alvo.
 # Deixe comentado para a detecção automática (riteward version list).
-# version_files:
-#   - "package.json"
-#   - "src-tauri/tauri.conf.json"
+version_files:
+  - "package.json"
 
 refactor:
   max_lines: 500
