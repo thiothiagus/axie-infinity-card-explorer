@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { filterCards } from './useCardFilter'
-import type { Card, GenerationFilter } from '../types/card'
+import type { Card } from '../types/card'
 
 const mockCards: Card[] = [
   {
