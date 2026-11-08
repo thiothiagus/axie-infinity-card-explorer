@@ -12,7 +12,7 @@ const CLASS_COLORS: Record<string, string> = {
   Aqua: 'var(--color-aqua)',
 }
 
-function getInitials(name: string): string {
+export function getInitials(name: string): string {
   return name
     .split(' ')
     .filter(Boolean)
@@ -21,7 +21,7 @@ function getInitials(name: string): string {
     .join('')
 }
 
-function getClassColor(axieClass: string): string {
+export function getClassColor(axieClass: string): string {
   return CLASS_COLORS[axieClass] ?? '#888'
 }
 

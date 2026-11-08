@@ -20,6 +20,7 @@ permissions:
   push: false
   commit: false
   # review_approval: false = modo autônomo: o agente executa a bateria e registra os resultados.
+  # Com review_approval: false, merge e delete da branch ficam autorizados após COMPLETED.
   review_approval: false
   # plan_approval: true exige o checkbox de auto-auditoria do plano;
   # false dispensa o checkbox (plano ainda é obrigatório).
@@ -31,6 +32,8 @@ permissions:
   # o backlog está vazio (workflow creating-new-tasks);
   # false = o agente tria, cria direto e relata.
   new_tasks_review: true
+  # autonomous_merge: true permite merge e delete da branch em modo autônomo após COMPLETED.
+  autonomous_merge: true
 
 # logs:
 #   files:
