@@ -163,3 +163,46 @@ instalado, `npm` disponível.
 ## Notas
 
 _Decisões relevantes viram registros via `riteward decision create`._
+
+- Iteração 1 (IMPLEMENTATION): todos os 16 passos do plano
+  executados na ordem. Checkpoint commit `c5abed3` (scaffold completo:
+  24 arquivos). Desvios registrados:
+  1. `package.json` `build` é `vite build` (sem `tsc -b`) — o
+     `tsconfig.json` foi separado de `tsconfig.node.json`
+     (removido `references`) para evitar o erro TS6310 (composite
+     project não pode desabilitar emit). Typecheck roda `tsc -b
+     --noEmit` que ainda valida o graph.
+  2. `eslint.config.js` usa `vitest/config` `defineConfig` (não
+     `vite` `defineConfig`) para tipar a opção `test` sem cast.
+  3. `eslint-plugin-react-hooks` adicionado como devDependency
+     (não estava no `package.json` inicial do plano).
+  4. `tsconfig.node.json` com `emitDeclarationOnly`/`outDir` para
+     satisfazer `composite: true` (obriga emit).
+  5. `vite.config.ts` `test` com `setupFiles: ['./src/test/setup.ts']`
+     (arquivo criado com `import '@testing-library/jest-dom'`).
+  6. `quality_gates` no `.riteward/config.yaml` como objetos
+     `{name, command}` (o schema exige objeto, não string).
+  7. `*.tsbuildinfo` adicionado ao `.gitignore` (gerado pelo
+     `tsc -b`).
+
+- Validações executadas (todas verdes):
+  - `npm install` → 412 packages
+  - `npm run typecheck` → exit 0
+  - `npm run lint` → exit 0 (0 errors)
+  - `npm test` → 1 test passed
+  - `npm run build` → `built in 743ms`, `dist/` gerado
+  - `npm run dev` → HTTP 200 em `localhost:5173` com `<title>Axie
+    Infinity Card Explorer</title>`
+  - `node -e "JSON.parse(...)"` em `src/data/*.json` → 3× OK
+  - `riteward config validate` → válida
+  - `riteward check` → 3 gates PASS
+  - `riteward version list` → `package.json — 0.1.0`
+
+- PNGs movidos com nomes normalizados (sem acento/espaço) via
+  `git mv`:
+  - `Ícone Axie Explorador de Cartas.png` →
+    `src/assets/icone-axie-explorador-de-cartas.png`
+  - `Mascote Detetive com Lupa e Carta.png` →
+    `src/assets/mascote-detetive-com-lupa-e-carta.png`
+  - `Explorador de Cartas Axie Infinity.png` →
+    `src/assets/explorador-de-cartas-axie-infinity.png`
