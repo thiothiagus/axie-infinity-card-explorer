@@ -1,0 +1,51 @@
+# Bateria de testes — task-003 (execução autônoma do agente, 2026-11-08, modo review_approval: false)
+
+== 1. npm run dev (checar titulo) ==
+1
+dev server validado e encerrado
+
+== 2. npm test ==
+ ✓ src/components/SearchInput.test.tsx  (5 tests) 153ms
+ ✓ src/components/CardGrid.test.tsx  (3 tests) 171ms
+
+ Test Files  5 passed (5)
+      Tests  28 passed (28)
+   Start at  13:18:52
+   Duration  2.77s (transform 361ms, setup 430ms, collect 1.00s, tests 1.71s, environment 2.48s, prepare 782ms)
+
+
+== 3. npm run lint ==
+lint OK (exit 0)
+
+== 4. npm run typecheck ==
+typecheck OK (exit 0)
+
+== 5. npm run build ==
+
+> axie-infinity-card-explorer@0.1.0 build
+> vite build
+
+▲ [WARNING] Duplicate key "eslint-plugin-react-hooks" in object literal [duplicate-object-key]
+
+    package.json:28:4:
+      28 │     "eslint-plugin-react-hooks": "^7.1.1",
+         ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  The original key "eslint-plugin-react-hooks" is here:
+
+    package.json:27:4:
+      27 │     "eslint-plugin-react-hooks": "^7.0.0",
+         ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+vite v5.4.21 building for production...
+transforming...
+✓ 47 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                 0.59 kB │ gzip:  0.35 kB
+dist/assets/mascote-detetive-com-lupa-e-carta-CK_sAjlk.png  1,137.72 kB
+dist/assets/index-C0Bnrkme.css                                  6.09 kB │ gzip:  1.81 kB
+dist/assets/index-ChqRTwsI.js                                 153.45 kB │ gzip: 49.21 kB
+✓ built in 865ms
+assets
+index.html

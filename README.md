@@ -20,9 +20,21 @@ duas gerações:
 ```
 ├── src/
 │   ├── main.tsx          # entry point
-│   ├── App.tsx           # componente raiz (página de boas-vindas)
-│   ├── App.test.tsx      # smoke test
-│   ├── assets/           # ícones (3 PNGs)
+│   ├── App.tsx           # layout principal (header + filtros + grid + modal)
+│   ├── App.module.css    # estilos do layout
+│   ├── App.test.tsx      # 7 testes de integração
+│   ├── index.css         # variáveis globais + reset
+│   ├── types/
+│   │   └── card.ts       # Card, Generation, Stats, GenerationFilter
+│   ├── components/
+│   │   ├── Card.tsx + .module.css + .test.tsx
+│   │   ├── CardGrid.tsx + .module.css + .test.tsx
+│   │   ├── FilterBar.tsx + .module.css + .test.tsx
+│   │   ├── SearchInput.tsx + .module.css + .test.tsx
+│   │   └── CardDetail.tsx + .module.css + .test.tsx
+│   ├── hooks/
+│   │   └── useCardFilter.ts  # filterCards (pura) + useCardFilter (useMemo)
+│   ├── assets/           # 3 PNGs (mascote detetive, ícones)
 │   ├── data/             # dataset de cartas (JSON)
 │   │   ├── cards.json    # 12 cartas amostra (6 Classic + 6 Origin v3)
 │   │   ├── classes.json  # classes por geração
@@ -50,6 +62,11 @@ npm run typecheck  # tsc -b --noEmit
 
 ## Changelog
 
+- **0.2.0** — Grid de cartas com filtros (classe, parte, geração),
+  busca por nome, e modal de detalhe. Componentes `Card`,
+  `CardGrid`, `FilterBar`, `SearchInput`, `CardDetail`; hook
+  `useCardFilter`; 28 testes automatizados; mascote detetive no
+  header e no empty state.
 - **0.1.0** — Bootstrap do scaffold React + Vite + TypeScript:
   `package.json`, configs (Vite/TS/ESLint/Vitest), `index.html`,
   `src/main.tsx`, `src/App.tsx` (página de boas-vindas),
