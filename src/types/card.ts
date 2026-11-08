@@ -13,10 +13,13 @@ export interface Card {
   generation: Generation
   axieClass: string
   part: string | null
-  tier: string
+  tier: string | null
   image: string | null
   stats: Stats | null
   skills: string[]
+  description?: string
+  energyCost?: number
+  actionType?: 'Melee' | 'Ranged' | 'Support'
 }
 
 export type GenerationFilter = 'all' | Generation
