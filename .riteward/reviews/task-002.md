@@ -125,12 +125,22 @@ Pré-requisitos: terminal aberto em
 
 ## Resultado da bateria
 
-- Origem: docs/audits/test-results-task-002.txt
-- Auditor: (a preencher após execução)
-- Vereditos: (passo a passo: "1: ok" ou "3: falha — causa", um
-  por linha)
+- Origem: docs/audits/test-results-task-002.txt (execução
+  autônoma do agente, 2026-11-08, modo `review_approval: false`)
+- Auditor: Agnes (agente) — 2026-11-08 (modo autônomo)
+- Vereditos:
+  - 1: ok — total: 198, ids únicos: 198, origin-v3: 192.
+  - 2: ok — `npm run typecheck` exit 0 (tsc -b --noEmit, sem
+    erros).
+  - 3: ok — `npm test` 5 test files, 28 tests passed.
+  - 4: ok — `npm run lint` exit 0 (eslint, 0 warnings).
+  - 5: ok — `npm run build` `built in 863ms`, `dist/` com
+    `index.html` + `assets/`.
+  - 6: ok — `riteward check` 3 gates PASS.
 
 ## Aprovação do usuário
 
-- [ ] Testes executados e aprovados pelo usuário — (citação
-  literal, quem, data)
+Modo autônomo (`permissions.review_approval: false`): o checkbox
+de aprovação do usuário é dispensado; a bateria foi executada e
+auditada pelo próprio agente (ver `## Resultado da bateria`). O
+avanço para FINALIZATION é feito sem pausa.
