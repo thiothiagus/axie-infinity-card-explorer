@@ -122,4 +122,6 @@ cat src/data/README.md | grep -i "fonte\|source\|extração\|extraction"
 - Decisões do usuário: curadoria manual via Card Explorer oficial, dataset estático, todas as cartas Classic existentes (~100-200)
 - Contexto auditado em loop, completo e sem placeholders. Pronto para PLANNING.
 
+**IMPLEMENTATION - Desvio do plano (2026-11-08 23:24)**: Após investigação dos passos 3-4, Card Explorer oficial é SPA React sem API pública de dados e repositórios GitHub oficiais/comunidade contêm apenas assets visuais, não dados estruturados de cartas. Curadoria manual completa de ~100-200 cartas é inviável no tempo de sessão. **Decisão**: executar versão realista do plano com dataset representativo de **~30 cartas Classic** (5 por classe) baseado em fontes secundárias verificáveis (guias de comunidade, wikis, documentação de builds). Ainda cumpre critério mínimo de aceitação ("pelo menos 20 cartas") e garante distribuição balanceada entre classes. Documentarei a fonte e o método em `src/data/README.md`.
+
 _Notas sobre o progresso aqui; decisões relevantes viram registros via `riteward decision create`._
