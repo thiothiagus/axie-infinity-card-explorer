@@ -1,0 +1,29 @@
+
+> axie-infinity-card-explorer@0.3.0 test
+> vitest run
+
+
+ RUN  v1.6.1 /var/mnt/ssd2/wip-apps/axie-infinity-card-explorer
+
+ ✓ src/hooks/useCardFilter.test.ts  (18 tests) 8ms
+ ✓ src/utils/generation.test.ts  (11 tests) 9ms
+ ✓ src/components/Card.test.tsx  (28 tests) 181ms
+ ✓ src/components/FilterBar.test.tsx  (6 tests) 272ms
+ ✓ src/components/CardDetail.test.tsx  (7 tests) 162ms
+ ✓ src/components/SearchInput.test.tsx  (5 tests) 122ms
+ ✓ src/components/CardGrid.test.tsx  (3 tests) 147ms
+ ✓ src/App.test.tsx  (7 tests) 2714ms
+
+ Test Files  8 passed (8)
+      Tests  85 passed (85)
+   Start at  15:48:33
+   Duration  4.68s (transform 297ms, setup 591ms, collect 1.08s, tests 3.62s, environment 3.68s, prepare 1.01s)
+
+
+> axie-infinity-card-explorer@0.3.0 typecheck
+> tsc -b --noEmit
+
+
+> axie-infinity-card-explorer@0.3.0 lint
+> eslint . --ext ts,tsx --max-warnings 0
+

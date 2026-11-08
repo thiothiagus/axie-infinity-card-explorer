@@ -1,7 +1,7 @@
 ---
 id: task-005
 title: Adicionar testes unitários para componentes e hooks não cobertos
-status: in_progress
+status: done
 priority: 75
 created_at: 2026-11-08
 ---
