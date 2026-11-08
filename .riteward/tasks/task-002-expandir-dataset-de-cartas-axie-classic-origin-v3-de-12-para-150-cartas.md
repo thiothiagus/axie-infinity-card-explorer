@@ -47,21 +47,21 @@ Origem: conversa do usuário (2026-11-08). O dataset atual em src/data/cards.jso
 
 ## Critérios de aceitação
 
-- [ ] `src/data/cards.json` tem 198 cartas (6 Classic + 192 Origin
+- [x] `src/data/cards.json` tem 198 cartas (6 Classic + 192 Origin
       v3), todas com `id` único
-- [ ] `src/data/cards.json` é JSON válido (`node -e
+- [x] `src/data/cards.json` é JSON válido (`node -e
       "JSON.parse(...)"`)
-- [ ] Todas as 6 classes Origin v3 têm 32 cartas cada
+- [x] Todas as 6 classes Origin v3 têm 32 cartas cada
       (`Aqua`, `Beast`, `Bird`, `Bug`, `Plant`, `Reptile`)
-- [ ] `src/types/card.ts` tem `description?`, `energyCost?`,
+- [x] `src/types/card.ts` tem `description?`, `energyCost?`,
       `actionType?` como campos opcionais
-- [ ] `npm run typecheck` passa (exit 0)
-- [ ] `npm run lint` passa (exit 0)
-- [ ] `npm test` passa (testes atualizados para o novo total)
-- [ ] `npm run build` gera `dist/` sem erro
-- [ ] `riteward refactor scan` continua limpo (ignore_files cobre
+- [x] `npm run typecheck` passa (exit 0)
+- [x] `npm run lint` passa (exit 0)
+- [x] `npm test` passa (testes atualizados para o novo total)
+- [x] `npm run build` gera `dist/` sem erro
+- [x] `riteward refactor scan` continua limpo (ignore_files cobre
       `src/data/**/*.json`)
-- [ ] `riteward check` passa (3 gates)
+- [x] `riteward check` passa (3 gates)
 
 ## Plano de testes manuais
 
@@ -116,4 +116,23 @@ Pré-requisitos: terminal aberto em
 
 ## Notas
 
-_Notas sobre o progresso aqui; decisões relevantes viram registros via `riteward decision create`._
+Decisões relevantes viram registros via `riteward decision create`.
+- Iteração 1 (IMPLEMENTATION, commit `6a8a7c1`): expandi o dataset
+  de 12 para 198 cartas. Extraí 192 cartas Origin v3 do
+  `__NEXT_DATA__` do `origin-rosy.vercel.app` (prop
+  `pageProps.allCards`), converti para o formato `cards.json`
+  (id, name, generation, axieClass, part, tier, image slug,
+  stats: null, skills: []), mantive as 6 Classic do scaffold.
+  Total: 198. Todos os 10 critérios verificados:
+  - `cards.json` 198 cartas, 198 ids únicos
+  - 192 Origin v3 (32 por classe: Aqua/Beast/Bird/Bug/Plant/Reptile),
+    6 Classic
+  - `types/card.ts`: `tier: string | null` (era `string`),
+    adicionados `description?`, `energyCost?`, `actionType?`
+  - `App.test.tsx`: 198 por padrão, 192 Origin v3, 6 Classic;
+    "Anemone" usa `getAllByText` (pode ter duplicatas)
+  - `typecheck`/`lint`/`test`/`build` verdes
+  - `refactor scan` limpo, `riteward check` 3 gates PASS
+- Nota: a classe "Aquatic" (Classic) aparece 1× no dataset; a
+  classe "Aqua" (Origin v3) aparece 32×. São nomes distintos por
+  geração — comportamento correto.
