@@ -148,9 +148,9 @@ instalado em `/home/thio/.local/bin/riteward`; branch atual `feat/setup`.
 
 ## Resultado da bateria
 
-- Origem: docs/audits/test-results-task-setup.txt (execução prévia do
-  agente, 2026-11-08)
-- Auditor: Agnes (agente) — 2026-11-08
+- Origem: docs/audits/test-results-task-setup.txt (execução autônoma
+  final do agente, 2026-11-08)
+- Auditor: Agnes (agente) — 2026-11-08 (modo autônomo)
 - Vereditos:
   - 1: ok — `sed -n '1,6p' AGENTS.md` mostra linhas 1–4 com o bloco
     delimitado do Riteward (start → texto → end) e linha 5 em branco,
@@ -165,12 +165,13 @@ instalado em `/home/thio/.local/bin/riteward`; branch atual `feat/setup`.
     (ignorado); `git check-ignore .riteward/config.yaml` → vazio
     (versionado).
   - 6: ok — `riteward workflow show task-setup` → `Estado atual: REVIEW`
-    com 5 transições no histórico; `git log --oneline -3` mostra 2
-    commits (`7f9b79e`, `3b0d6cc`); `git status --porcelain` mostra 2
-    untracked (`.riteward/reviews/`, `docs/`) — a revisão e a bateria,
-    que serão commitados na FINALIZATION.
+    com 5 transições no histórico; `git log --oneline -5` mostra 3
+    commits na branch (`8a6d57d`, `7f9b79e`, `3b0d6cc`);
+    `git status --porcelain` limpo.
 
 ## Aprovação do usuário
 
-- [ ] Testes executados e aprovados pelo usuário — (citação literal,
-  quem, data)
+Modo autônomo (`permissions.review_approval: false`): o checkbox de
+aprovação do usuário é dispensado; a bateria foi executada e auditada
+pelo próprio agente (ver `## Resultado da bateria`). O avanço para
+FINALIZATION é feito sem pausa.

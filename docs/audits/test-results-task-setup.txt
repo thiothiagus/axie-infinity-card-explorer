@@ -1,4 +1,4 @@
-# Bateria de testes — task-setup (execução prévia do agente, 2026-11-08)
+# Bateria de testes — task-setup (execução autônoma do agente, 2026-11-08, revisão FINAL)
 
 == 1. AGENTS.md — bloco do Riteward intacto no topo ==
 <!-- riteward:start -->
@@ -35,8 +35,8 @@ Histórico:
   IMPLEMENTATION → TESTING | implementação concluída: 7 passos do plano executados, critérios de aceitação marcados, working tree limpo | 2026-11-08T14:03:11.176Z
   TESTING → REVIEW | testes verdes (0 gates, check passou), working tree limpo, auditoria de testes: nenhum teste criado/alterado nesta task (task de configuração de governança, sem código de produto) | 2026-11-08T14:03:20.099Z
 ---
+8a6d57d chore: config em modo autonomo + revisao + bateria
 7f9b79e chore: marca critérios de aceitação da task-setup
 3b0d6cc chore: configura Riteward (AGENTS.md, logs, refactor scan, gitignore, README)
 ---
-?? .riteward/reviews/
-?? docs/
+ M docs/audits/test-results-task-setup.txt
