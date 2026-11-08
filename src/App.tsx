@@ -4,38 +4,13 @@ import { FilterBar } from './components/FilterBar'
 import { CardGrid } from './components/CardGrid'
 import { CardDetail } from './components/CardDetail'
 import { useCardFilter } from './hooks/useCardFilter'
+import { getAvailableClasses, getAvailableParts } from './utils/generation'
 import type { Card, GenerationFilter } from './types/card'
 import cardsData from './data/cards.json'
-import classesData from './data/classes.json'
-import partsData from './data/parts.json'
 import mascotUrl from './assets/mascote-detetive-com-lupa-e-carta.png'
 import styles from './App.module.css'
 
 const cards = cardsData as Card[]
-const classesByGeneration = classesData as Array<{
-  generation: string
-  classes: string[]
-}>
-const partsByGeneration = partsData as Array<{
-  generation: string
-  parts: string[]
-}>
-
-function getAvailableClasses(generation: GenerationFilter): string[] {
-  if (generation === 'all') {
-    return [...new Set(classesByGeneration.flatMap((entry) => entry.classes))]
-  }
-  const entry = classesByGeneration.find((e) => e.generation === generation)
-  return entry ? entry.classes : []
-}
-
-function getAvailableParts(generation: GenerationFilter): string[] {
-  if (generation === 'all') {
-    return [...new Set(partsByGeneration.flatMap((entry) => entry.parts))]
-  }
-  const entry = partsByGeneration.find((e) => e.generation === generation)
-  return entry ? entry.parts : []
-}
 
 export function App() {
   const [search, setSearch] = useState('')
