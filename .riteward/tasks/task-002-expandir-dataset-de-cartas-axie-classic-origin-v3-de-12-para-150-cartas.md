@@ -1,7 +1,7 @@
 ---
 id: task-002
 title: Expandir dataset de cartas Axie (Classic + Origin v3) de 12 para 150+ cartas
-status: in_progress
+status: done
 priority: 70
 created_at: 2026-11-08
 ---

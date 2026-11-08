@@ -62,6 +62,12 @@ npm run typecheck  # tsc -b --noEmit
 
 ## Changelog
 
+- **0.3.0** — Dataset expandido de 12 para 198 cartas: 192 cartas
+  Axie Origin v3 (32 por classe: Aqua, Beast, Bird, Bug, Plant,
+  Reptile; 6 partes) extraídas do `origin-rosy`, + 6 cartas Axie
+  Classic mantidas. Campos opcionais adicionados ao type
+  (`description`, `energyCost`, `actionType`). Testes atualizados
+  para o novo total.
 - **0.2.0** — Grid de cartas com filtros (classe, parte, geração),
   busca por nome, e modal de detalhe. Componentes `Card`,
   `CardGrid`, `FilterBar`, `SearchInput`, `CardDetail`; hook
