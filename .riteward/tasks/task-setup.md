@@ -57,9 +57,31 @@ O diretório `.riteward/` é parte da governança do projeto e deve ser versiona
 
 ## Critérios de aceitação
 
-- [ ] `AGENTS.md` da raiz contém o contexto/propósito do projeto abaixo do bloco delimitado do Riteward, que permanece intacto no topo.
-- [ ] `.riteward/riteward.md` preservado como referência operacional permanente (nada foi movido ou removido dele).
-- [ ] Diretório de logs criado e bloco `logs` configurado em `.riteward/config.yaml` com validação bem-sucedida via `riteward logs check`.
-- [ ] Bloco `refactor` configurado em `.riteward/config.yaml` (`max_lines`, `ignore_dirs` e, se necessário, `ignore_files`) com validação bem-sucedida via `riteward refactor scan`.
-- [ ] `quality_gates` em `.riteward/config.yaml` sincronizados com os scripts do projeto, validados com `riteward check`.
-- [ ] `.riteward/` commitado (incluindo manifest.json); apenas `.riteward/state/` e logs locais ignorados no `.gitignore`.
+- [x] `AGENTS.md` da raiz contém o contexto/propósito do projeto abaixo
+  do bloco delimitado do Riteward, que permanece intacto no topo.
+- [x] `.riteward/riteward.md` preservado como referência operacional
+  permanente (nada foi movido ou removido dele).
+- [x] Diretório de logs criado e bloco `logs` configurado em
+  `.riteward/config.yaml` com validação bem-sucedida via
+  `riteward logs check`.
+- [x] Bloco `refactor` configurado em `.riteward/config.yaml`
+  (`max_lines`, `ignore_dirs` e, se necessário, `ignore_files`) com
+  validação bem-sucedida via `riteward refactor scan`.
+- [x] `quality_gates` em `.riteward/config.yaml` sincronizados com os
+  scripts do projeto, validados com `riteward check`.
+- [x] `.riteward/` commitado (incluindo manifest.json); apenas
+  `.riteward/state/` e logs locais ignorados no `.gitignore`.
+
+## Notas
+
+- Iteração 1 (IMPLEMENTATION): todos os 7 passos do plano executados na
+  ordem. Checkpoint commit `3b0d6cc`. O `AGENTS.md` foi reescrito
+  integralmente (não editado em local) para garantir o fechamento correto
+  do bloco delimitado — o checklist `grep -A4 "riteward:start" AGENTS.md`
+  confirma que o bloco permanece no topo, intacto, com a tag
+  `<!-- riteward:end -->` presente. O `.riteward/` foi versionado
+  completo (menos `state/`, ignorado). `logs/errors.log` criado vazio,
+  `logs/` ignorado no `.gitignore`. Qualidade: `riteward check` verde
+  (0 gates — `package.json` ainda não existe; sincronizado com a
+  realidade). Refactor scan: nenhum monolítico. Logs check: nenhum erro
+  novo em 1 arquivo.
