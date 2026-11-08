@@ -23,3 +23,5 @@ export interface Card {
 }
 
 export type GenerationFilter = 'all' | Generation
+
+export type SortCriteria = 'name-asc' | 'name-desc' | 'tier' | 'hp'
