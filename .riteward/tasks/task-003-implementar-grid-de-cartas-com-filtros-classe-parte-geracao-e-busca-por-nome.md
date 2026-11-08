@@ -87,27 +87,27 @@ Implementar a UI principal do Card Explorer:
 
 ## Critérios de aceitação
 
-- [ ] `npm run dev` exibe a página com título, mascote detetive,
+- [x] `npm run dev` exibe a página com título, mascote detetive,
       FilterBar (chips de geração + classe + parte), SearchInput, e
       grid de 12 cartas (dataset atual)
-- [ ] Filtrar por `generation='classic'` mostra 6 cartas; por
+- [x] Filtrar por `generation='classic'` mostra 6 cartas; por
       `generation='origin-v3'` mostra 6 cartas; por `generation='all'`
       mostra 12
-- [ ] Filtrar por classe (ex. `Bird` em Origin v3) mostra apenas as
+- [x] Filtrar por classe (ex. `Bird` em Origin v3) mostra apenas as
       cartas Bird de Origin v3
-- [ ] Filtrar por parte (ex. `Tail`) mostra apenas cartas com
+- [x] Filtrar por parte (ex. `Tail`) mostra apenas cartas com
       `part='Tail'`
-- [ ] Buscar "cloud" (case-insensitive) mostra 1 carta ("Cloud")
-- [ ] Combinações de filtros funcionam (ex. geração `classic` + classe
+- [x] Buscar "cloud" (case-insensitive) mostra 1 carta ("Cloud")
+- [x] Combinações de filtros funcionam (ex. geração `classic` + classe
       `Bird` → 1 carta: "Spirit Feather")
-- [ ] Vazio (`filteredCards.length === 0`) exibe o mascote detetive
+- [x] Vazio (`filteredCards.length === 0`) exibe o mascote detetive
       com mensagem "Nenhuma carta encontrada"
-- [ ] Clicar numa carta abre o modal `CardDetail` com os dados;
+- [x] Clicar numa carta abre o modal `CardDetail` com os dados;
       fechar o modal volta ao grid
-- [ ] `npm test` passa (testes de CardGrid, FilterBar, CardDetail,
-      App)
-- [ ] `npm run lint` e `npm run typecheck` passam
-- [ ] `npm run build` gera `dist/` sem erro
+- [x] `npm test` passa (testes de CardGrid, FilterBar, CardDetail,
+      SearchInput, App)
+- [x] `npm run lint` e `npm run typecheck` passam
+- [x] `npm run build` gera `dist/` sem erro
 
 ## Plano de testes manuais
 
@@ -167,3 +167,31 @@ _Decisões relevantes viram registros via `riteward decision create`._
   `src/hooks/useCardFilter.ts` (separado de `App.tsx` para facilitar
   testes). O modal `CardDetail` usa overlay + `role="dialog"` para
   acessibilidade (sem lib de modal).
+- Iteração 2 (IMPLEMENTATION, commit `4df5ec9`): implementei todos
+  os 17 passos do plano. 24 arquivos no commit. Desvios registrados:
+  1. `useCardFilter.ts` — usei destructure `const { search, generation,
+     axieClass, part } = filters` + useMemo com deps explícitas para
+     satisfazer o lint rule `react-hooks/exhaustive-deps` (o plano
+     previa `filters` na deps array, o que geraria warning de dep
+     ausente).
+  2. `App.tsx` — usei `[...new Set(flatMap)]` para deduplicar
+     classes/partes quando `generation='all'` (evita warning de
+     React key duplicada — classes Reptile/Bird/Plant/Beast/Bug
+     existem nas 2 gerações). O plano não previa essa deduplicação.
+  3. Os testes usam `fireEvent` (do `@testing-library/react`, já
+     instalado) em vez de `userEvent` (não instalado) — registrado
+     no Risco 6 do plano.
+  4. `FilterBar.test.tsx` — `getAllByRole('button', {name:'Todas'})`
+     pois "Todas" aparece em 2 grupos (geração + classe). O teste
+     de "class Todas" usa `closest('[class*="group"]')` para
+     discriminar.
+- Validações executadas (todas verdes):
+  - `npm run typecheck` → exit 0
+  - `npm run lint` → exit 0 (0 warnings)
+  - `npm test` → 5 test files, 28 tests passed
+  - `npm run build` → `built in 854ms`, `dist/` gerado (3 arquivos:
+    `index.html`, `index-C0Bnrkme.css`, `index-ChqRTwsI.js` +
+    `mascote-detetive-com-lupa-e-carta-CK_sAjlk.png` — o mascote
+    foi incluído no bundle pois é importado em `App.tsx`)
+  - `npm run dev` → HTTP 200 em `localhost:2943` com "Axie Infinity
+    Card Explorer" e o mascote detetive no HTML
