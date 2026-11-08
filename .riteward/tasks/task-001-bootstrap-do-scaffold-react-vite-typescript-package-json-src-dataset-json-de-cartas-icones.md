@@ -74,22 +74,22 @@ Criar o scaffold React + Vite + TypeScript na raiz do projeto:
 
 ## Critérios de aceitação
 
-- [ ] `npm install` termina sem erro no diretório do projeto
-- [ ] `npm run dev` inicia o dev server Vite em `localhost:5173` e a
+- [x] `npm install` termina sem erro no diretório do projeto
+- [x] `npm run dev` inicia o dev server Vite em `localhost:5173` e a
       página exibe "Axie Infinity Card Explorer"
-- [ ] `npm run build` termina sem erro e gera `dist/`
-- [ ] `npm test` termina sem erro (1 smoke test passando)
-- [ ] `npm run lint` termina sem erro
-- [ ] `npm run typecheck` termina sem erro
-- [ ] `src/data/cards.json`, `src/data/classes.json`,
+- [x] `npm run build` termina sem erro e gera `dist/`
+- [x] `npm test` termina sem erro (1 smoke test passando)
+- [x] `npm run lint` termina sem erro
+- [x] `npm run typecheck` termina sem erro
+- [x] `src/data/cards.json`, `src/data/classes.json`,
       `src/data/parts.json` existem e são JSON válido
-- [ ] Os 3 PNGs foram movidos de `*.png` (raiz) para `src/assets/`
-- [ ] `.riteward/config.yaml` `quality_gates` tem 3 gates (`test`,
+- [x] Os 3 PNGs foram movidos de `*.png` (raiz) para `src/assets/`
+- [x] `.riteward/config.yaml` `quality_gates` tem 3 gates (`test`,
       `lint`, `typecheck`) e `riteward check` termina verde
-- [ ] `.riteward/config.yaml` `version_files` declara `package.json`
-- [ ] `README.md` lista os comandos reais (`npm install`, `npm run dev`,
+- [x] `.riteward/config.yaml` `version_files` declara `package.json`
+- [x] `README.md` lista os comandos reais (`npm install`, `npm run dev`,
       `npm run build`, `npm test`, `npm run lint`, `npm run typecheck`)
-- [ ] `package.json` `version` é `0.1.0`
+- [x] `package.json` `version` é `0.1.0`
 
 ## Plano de testes manuais
 
