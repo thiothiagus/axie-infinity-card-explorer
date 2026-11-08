@@ -1,0 +1,21 @@
+{
+	"ritewardVersion": "0.37.0",
+	"configSchemaVersion": "1",
+	"updatedAt": "2026-11-08T13:52:35.200Z",
+	"files": {
+		".riteward/constitution.md": "044f0e2d0aa3248bdee4ee5fb5e03c188f69085461c7886b87445226ac899382",
+		".riteward/workflows/executing-tasks.md": "773548de165552781fa5e8759bd36e426e3817225038308b244f2ca8ade9cc6a",
+		".riteward/workflows/updating-riteward.md": "b0a1893cdb6316b68cdb7d777ccc1b13b32b2d9ad627e010da741409ef289ab5",
+		".riteward/workflows/creating-new-tasks.md": "81d171a75be1667078fe197ebb828c3c59674f07b3b85d929f92519e64b1ae11",
+		".riteward/templates/task.md": "06c96015ef930dbb219d0b11ba00c4364d8ef6485c4936be3851e87ef0836277",
+		".riteward/templates/context.md": "1f1e557365e14d3e333f49e8f5761d20b4accab8965ecaa44bbca98b1e207184",
+		".riteward/templates/plan.md": "8c9479296809fedff1ee536ffa1436b01457cde6d8aef64a12e5562b5e95e6a2",
+		".riteward/templates/review.md": "762c2b0f5c7f0b584e97482815c5e6ce31c121b8182d692875585a40f035a227",
+		".riteward/templates/decision.md": "742a6d27310f8224cf8c0c8202bb33a6621aebcace1e49ffa730eed8b2d3eb25",
+		".riteward/skills/using-riteward.md": "6fa96ec1e40dce2aa88cd3c5e63e77430e754f2ced879f1c39e0de0fd8c45464",
+		".riteward/notes.md": "e2c5bdf0d10cade53e581193353e07957697147fe16c2a91bcb3816f7ac55c09",
+		".riteward/config.yaml": "dcfbe278c85eaa339920f9b4c2175d7ae6a6852f0afc0e968329ab1fcd9ba5f8",
+		".riteward/riteward.md": "150ad52d8dbe621830484e0880857fb7b0382e1cd98784f695e831a312b6c33e",
+		".riteward/tasks/task-setup.md": "d518e5708cd1bfbeb3d4588e9b652188b0e381df388faac2bb881da501d031c6"
+	}
+}

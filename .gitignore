@@ -1,0 +1,21 @@
+# Riteward — estado local de workflow (não faz parte do produto)
+.riteward/state/
+
+# Logs locais
+logs/
+
+# Dependências
+node_modules/
+
+# Builds
+dist/
+
+# Placeholder files
+.gitkeep
+
+# Logs diversos
+*.log
+
+# SO / editor
+.DS_Store
+.directory

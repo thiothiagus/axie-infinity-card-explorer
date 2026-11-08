@@ -1,0 +1,64 @@
+version: "1"
+project:
+  name: "axie-infinity-card-explorer"
+  language: typescript
+  packageManager: npm
+  scripts:
+    test: null
+    lint: null
+    typecheck: null
+workflow:
+  default: task
+quality_gates: []
+permissions:
+  push: false
+  commit: false
+  # review_approval: true exige aprovação humana da revisão (pausa de REVIEW);
+  # false = modo autônomo: o agente executa a bateria e registra os resultados.
+  review_approval: true
+  # plan_approval: true exige o checkbox de auto-auditoria do plano;
+  # false dispensa o checkbox (plano ainda é obrigatório).
+  plan_approval: true
+  # knowledge_review: false o agente guarda o aprendizado na etiqueta direto;
+  # true exige aprovação explícita do usuário antes de guardar.
+  knowledge_review: false
+  # new_tasks_review: true exige aprovação do usuário para criar tasks quando
+  # o backlog está vazio (workflow creating-new-tasks);
+  # false = o agente tria, cria direto e relata.
+  new_tasks_review: true
+
+# logs:
+#   files:
+#     - path: logs/errors.log
+#     - path: logs/agents.jsonl
+#   ignore_patterns:
+#     - "Exemplo de ruído a ignorar"
+
+logs:
+  files:
+    - path: logs/errors.log
+  ignore_patterns:
+    - "DeprecationWarning"
+    - "ExperimentalWarning"
+
+# version_files: arquivos que guardam a versão do projeto-alvo.
+# Deixe comentado para a detecção automática (riteward version list).
+# version_files:
+#   - "package.json"
+#   - "src-tauri/tauri.conf.json"
+
+refactor:
+  max_lines: 500
+  baseline_max_lines: 2000
+  ignore_dirs:
+    - "node_modules"
+    - "dist"
+    - ".git"
+    - ".riteward"
+    - "logs"
+  ignore_files:
+    - "package-lock.json"
+    - "pnpm-lock.yaml"
+    - "yarn.lock"
+    - "src/data/**/*.json"
+    - "*.png"
