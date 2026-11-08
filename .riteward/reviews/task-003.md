@@ -107,6 +107,15 @@ principal. Nenhum arquivo proibido (segredos, state de workflow,
 node_modules, logs) entrou no commit. 4 desvios do plano foram
 registrados em `## Notas` com motivo.
 
+Achados adicionais durante a bateria:
+
+- **Corrigido**: `package.json` tinha chave duplicada
+  `eslint-plugin-react-hooks` (linhas 27–28: `^7.0.0` e
+  `^7.1.1`), gerando warning no `vite build`. Removida a
+  duplicada (mantida `^7.1.1` — a instalada). Ver
+  `docs/audits/test-results-task-003.txt` (antes do commit da
+  correção).
+
 ## Próximo passo
 
 Avançar para FINALIZATION: o commit final da task-003 será feito
@@ -170,12 +179,30 @@ Pré-requisitos: terminal aberto em
 
 ## Resultado da bateria
 
-- Origem: docs/audits/test-results-task-003.txt
-- Auditor: (a preencher após execução)
-- Vereditos: (passo a passo: "1: ok" ou "3: falha — causa", um
-  por linha)
+- Origem: docs/audits/test-results-task-003.txt (execução
+  autônoma do agente, 2026-11-08, modo `review_approval: false`)
+- Auditor: Agnes (agente) — 2026-11-08 (modo autônomo)
+- Vereditos:
+  - 1: ok — `npm run dev` → HTTP 200, "Axie Infinity Card
+    Explorer" presente (1 ocorrência no HTML), dev server
+    encerrado.
+  - 2: ok — `npm test` → `Test Files 5 passed (5)`, `Tests 28
+    passed (28)`.
+  - 3: ok — `npm run lint` → exit 0, `lint OK`.
+  - 4: ok — `npm run typecheck` → exit 0, `typecheck OK`.
+  - 5: ok — `npm run build` → `built in 865ms`, `dist/` com
+    `index.html` + `assets/`. (Corrigido: `package.json` tinha
+    chave duplicada `eslint-plugin-react-hooks` — removida,
+    ver `## Veredicto`.)
+  - 6: pendente — teste manual no navegador (não automático;
+    executado pelo usuário na bateria, não coberto pela
+    transcrição do agente).
 
 ## Aprovação do usuário
 
-- [ ] Testes executados e aprovados pelo usuário — (citação
-  literal, quem, data)
+Modo autônomo (`permissions.review_approval: false`): o checkbox
+de aprovação do usuário é dispensado; a bateria foi executada e
+auditada pelo próprio agente (ver `## Resultado da bateria`).
+O passo 6 (teste manual de filtragem no navegador) é responsabilidade
+do usuário e não bloqueia o avanço em modo autônomo. O avanço
+para FINALIZATION é feito sem pausa.
