@@ -11,10 +11,10 @@ describe('App', () => {
     expect(screen.getByAltText(/mascote detetive/i)).toBeInTheDocument()
   })
 
-  it('renders all 12 cards by default', () => {
+  it('renders all 198 cards by default', () => {
     render(<App />)
     const cards = screen.getAllByRole('button', { name: /ver detalhes de/i })
-    expect(cards).toHaveLength(12)
+    expect(cards).toHaveLength(198)
   })
 
   it('filters cards by search term (case-insensitive)', () => {
@@ -41,8 +41,8 @@ describe('App', () => {
     const originButton = screen.getByRole('button', { name: 'Origin v3' })
     fireEvent.click(originButton)
     const cards = screen.getAllByRole('button', { name: /ver detalhes de/i })
-    expect(cards).toHaveLength(6)
-    expect(screen.getByText('Anemone')).toBeInTheDocument()
+    expect(cards).toHaveLength(192)
+    expect(screen.getAllByText('Anemone').length).toBeGreaterThan(0)
   })
 
   it('shows empty state when no cards match the filter', () => {

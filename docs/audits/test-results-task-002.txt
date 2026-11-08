@@ -1,0 +1,48 @@
+# Bateria de testes — task-002 (execução autônoma do agente, 2026-11-08, modo review_approval: false)
+
+== 1. Validar JSON ==
+total: 198
+ids únicos: 198
+origin-v3: 192
+
+== 2. npm run typecheck ==
+
+> axie-infinity-card-explorer@0.2.0 typecheck
+> tsc -b --noEmit
+
+typecheck OK
+
+== 3. npm test ==
+ ✓ src/components/CardGrid.test.tsx  (3 tests) 162ms
+ ✓ src/App.test.tsx  (7 tests) 2965ms
+
+ Test Files  5 passed (5)
+      Tests  28 passed (28)
+   Start at  14:36:35
+   Duration  4.25s (transform 307ms, setup 521ms, collect 1.03s, tests 3.76s, environment 2.51s, prepare 612ms)
+
+
+== 4. npm run lint ==
+
+> axie-infinity-card-explorer@0.2.0 lint
+> eslint . --ext ts,tsx --max-warnings 0
+
+lint OK
+
+== 5. npm run build ==
+computing gzip size...
+dist/index.html                                                 0.59 kB │ gzip:  0.35 kB
+dist/assets/mascote-detetive-com-lupa-e-carta-CK_sAjlk.png  1,137.72 kB
+dist/assets/index-C0Bnrkme.css                                  6.09 kB │ gzip:  1.81 kB
+dist/assets/index-DtXUBCBs.js                                 187.03 kB │ gzip: 57.14 kB
+✓ built in 863ms
+assets
+index.html
+
+== 6. riteward check ==
+
+> axie-infinity-card-explorer@0.2.0 typecheck
+> tsc -b --noEmit
+
+Resultado: PASS
+Todos os quality gates passaram.
