@@ -1,7 +1,7 @@
 ---
 id: task-008
 title: Adicionar funcionalidade de ordenação de cartas
-status: in_progress
+status: done
 priority: 60
 created_at: 2026-11-08
 ---
@@ -48,14 +48,14 @@ Valor: facilita navegação e descoberta de cartas por critérios além dos filt
 
 ## Critérios de aceitação
 
-- [ ] Controle de ordenação visível na seção de controles ao lado dos filtros
-- [ ] Ordenação por nome A-Z ordena as cartas alfabeticamente crescente
-- [ ] Ordenação por nome Z-A ordena as cartas alfabeticamente decrescente
-- [ ] Ordenação por tier funciona corretamente (cartas sem tier aparecem no final)
-- [ ] Ordenação por HP funciona corretamente (cartas sem HP aparecem no final)
-- [ ] Ordenação persiste ao aplicar ou remover filtros de busca/geração/classe/parte
-- [ ] Componente `SortControl` possui testes unitários cobrindo todas as opções
-- [ ] Lógica de ordenação possui testes unitários cobrindo casos de borda (valores null, empates)
+- [x] Controle de ordenação visível na seção de controles ao lado dos filtros
+- [x] Ordenação por nome A-Z ordena as cartas alfabeticamente crescente
+- [x] Ordenação por nome Z-A ordena as cartas alfabeticamente decrescente
+- [x] Ordenação por tier funciona corretamente (cartas sem tier aparecem no final)
+- [x] Ordenação por HP funciona corretamente (cartas sem HP aparecem no final)
+- [x] Ordenação persiste ao aplicar ou remover filtros de busca/geração/classe/parte
+- [x] Componente `SortControl` possui testes unitários cobrindo todas as opções
+- [x] Lógica de ordenação possui testes unitários cobrindo casos de borda (valores null, empates)
 
 ## Plano de testes manuais
 
@@ -111,5 +111,21 @@ Valor: facilita navegação e descoberta de cartas por critérios além dos filt
 - Refactor scan: nenhum arquivo monolítico detectado
 - Auditoria final: contexto completo, todas as seções preenchidas, sem placeholders, investigação registrada
 - Pronto para avançar para PLANNING
+
+**IMPLEMENTATION - Execução do plano (2026-11-08T19:48-19:51):**
+- Passo 1: Tipo `SortCriteria` adicionado em `src/types/card.ts` — commit f0d27a4
+- Passos 2-3: Função `sortCards` e hook `useCardSort` implementados — commit b5c9e52
+- Passo 4: Testes unitários de `sortCards` criados (12 testes, todos passando) — commit 27d8afe
+- Passos 5-6: Componente `SortControl` e estilos criados — commit d57a628
+- Passo 7: Testes unitários de `SortControl` criados (7 testes, todos passando) — commit 807a148
+- Passo 8: Integração no `App.tsx` com estado e composição filtro → ordenação — commit 59e89d8
+- Passo 9: Contador de resultados usa `sortedCards.length` (incluído no passo 8)
+- Passo 10: Build de produção bem-sucedido, pronto para TESTING
+
+**TESTING - Quality gates (2026-11-08T19:52):**
+- `riteward check` executado: todos os gates passaram (test: 104/104, lint: 0 warnings, typecheck: sem erros)
+- Auditoria de testes: 2 arquivos criados com motivo registrado (`useCardSort.test.ts` — nova lógica de ordenação com 12 testes; `SortControl.test.tsx` — novo componente com 7 testes)
+- Nenhum teste removido, alterado ou pulado sem motivo
+- Pronto para REVIEW
 
 _Notas sobre o progresso aqui; decisões relevantes viram registros via `riteward decision create`._

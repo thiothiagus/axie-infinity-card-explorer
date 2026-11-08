@@ -20,27 +20,30 @@ duas gerações:
 ```
 ├── src/
 │   ├── main.tsx          # entry point
-│   ├── App.tsx           # layout principal (header + filtros + grid + modal)
+│   ├── App.tsx           # layout principal (header + filtros + ordenação + grid + modal)
 │   ├── App.module.css    # estilos do layout
 │   ├── App.test.tsx      # 7 testes de integração
 │   ├── index.css         # variáveis globais + reset
 │   ├── types/
-│   │   └── card.ts       # Card, Generation, Stats, GenerationFilter
+│   │   └── card.ts       # Card, Generation, Stats, GenerationFilter, SortCriteria
 │   ├── components/
 │   │   ├── Card.tsx + .module.css + .test.tsx (28 testes)
 │   │   ├── CardGrid.tsx + .module.css + .test.tsx
 │   │   ├── FilterBar.tsx + .module.css + .test.tsx
 │   │   ├── SearchInput.tsx + .module.css + .test.tsx
+│   │   ├── SortControl.tsx + .module.css + .test.tsx (7 testes)
 │   │   └── CardDetail.tsx + .module.css + .test.tsx
 │   ├── hooks/
 │   │   ├── useCardFilter.ts     # filterCards (pura) + useCardFilter (useMemo)
-│   │   └── useCardFilter.test.ts  # 18 testes
+│   │   ├── useCardFilter.test.ts  # 18 testes
+│   │   ├── useCardSort.ts       # sortCards (pura) + useCardSort (useMemo)
+│   │   └── useCardSort.test.ts  # 12 testes
 │   ├── utils/
 │   │   ├── generation.ts        # getAvailableClasses, getAvailableParts
 │   │   └── generation.test.ts   # 11 testes
 │   ├── assets/           # 3 PNGs (mascote detetive, ícones)
 │   ├── data/             # dataset de cartas (JSON)
-│   │   ├── cards.json    # 12 cartas amostra (6 Classic + 6 Origin v3)
+│   │   ├── cards.json    # 198 cartas (6 Classic + 192 Origin v3)
 │   │   ├── classes.json  # classes por geração
 │   │   └── parts.json    # partes por geração
 │   └── test/
@@ -66,6 +69,13 @@ npm run typecheck  # tsc -b --noEmit
 
 ## Changelog
 
+- **0.5.0** — Funcionalidade de ordenação de cartas adicionada: novo
+  componente `SortControl` com 4 opções (Nome A-Z, Nome Z-A, Tier, HP),
+  hook `useCardSort` com lógica de ordenação otimizada (useMemo), tipo
+  `SortCriteria` adicionado. Ordenação persiste ao aplicar/remover
+  filtros. Valores null (tier/HP) aparecem no final. 19 novos testes
+  (12 para useCardSort, 7 para SortControl), totalizando 104 testes em
+  10 arquivos. Todos os quality gates passando.
 - **0.4.0** — Cobertura de testes unitários expandida: adicionados 57
   novos testes (28 para Card.tsx, 18 para useCardFilter.ts, 11 para
   utils/generation.ts), totalizando 85 testes em 8 arquivos. Funções
