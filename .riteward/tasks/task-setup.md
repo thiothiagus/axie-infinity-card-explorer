@@ -1,7 +1,7 @@
 ---
 id: task-setup
 title: Configuração inicial do Riteward
-status: in_progress
+status: done
 priority: high
 generator_version: 0.37.0
 created_at: 2026-11-08
