@@ -41,7 +41,7 @@ duas gerações:
 
 ```bash
 npm install        # instala dependências
-npm run dev        # dev server (Vite) — localhost:5173
+npm run dev        # dev server (Vite) — localhost:2943
 npm run build      # build de produção
 npm test           # vitest run
 npm run lint       # eslint
