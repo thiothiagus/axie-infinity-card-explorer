@@ -1,0 +1,42 @@
+# Bateria de testes — task-setup (execução prévia do agente, 2026-11-08)
+
+== 1. AGENTS.md — bloco do Riteward intacto no topo ==
+<!-- riteward:start -->
+Este projeto usa o Riteward. Antes de qualquer alteração, leia `.riteward/riteward.md`
+(regras operacionais) e `.riteward/constitution.md` (princípios e políticas).
+<!-- riteward:end -->
+
+# Projeto
+
+== 2. riteward logs check ==
+OK: nenhum erro novo (1 arquivo(s) verificado(s)).
+
+== 3. riteward refactor scan ==
+Nenhum arquivo monolítico detectado.
+
+== 4. riteward check ==
+AVISO: Este comando executará os scripts definidos em .riteward/config.yaml. Certifique-se de que confia no conteúdo desse arquivo.
+Executando quality gates...
+Todos os quality gates passaram.
+
+== 5. git check-ignore (state ignorado, config versionada) ==
+state: .riteward/state/
+config: 
+
+== 6. workflow show + git log + status ==
+Tarefa: task-setup
+Estado atual: REVIEW
+Iniciado em: 2026-11-08T13:57:40.708Z
+Atualizado em: 2026-11-08T14:03:20.099Z
+Histórico:
+  (início) → DISCOVERY | Workflow initialized | 2026-11-08T13:57:40.708Z
+  DISCOVERY → PLANNING | descoberta concluída: contexto completo, scan de refatoração sem monolíticos, gates vazios por falta de package.json | 2026-11-08T13:58:51.184Z
+  PLANNING → IMPLEMENTATION | plano auto-auditado, todos os critérios mapeados | 2026-11-08T13:59:34.346Z
+  IMPLEMENTATION → TESTING | implementação concluída: 7 passos do plano executados, critérios de aceitação marcados, working tree limpo | 2026-11-08T14:03:11.176Z
+  TESTING → REVIEW | testes verdes (0 gates, check passou), working tree limpo, auditoria de testes: nenhum teste criado/alterado nesta task (task de configuração de governança, sem código de produto) | 2026-11-08T14:03:20.099Z
+---
+7f9b79e chore: marca critérios de aceitação da task-setup
+3b0d6cc chore: configura Riteward (AGENTS.md, logs, refactor scan, gitignore, README)
+---
+?? .riteward/reviews/
+?? docs/

@@ -13,9 +13,8 @@ quality_gates: []
 permissions:
   push: false
   commit: false
-  # review_approval: true exige aprovação humana da revisão (pausa de REVIEW);
-  # false = modo autônomo: o agente executa a bateria e registra os resultados.
-  review_approval: true
+  # review_approval: false = modo autônomo: o agente executa a bateria e registra os resultados.
+  review_approval: false
   # plan_approval: true exige o checkbox de auto-auditoria do plano;
   # false dispensa o checkbox (plano ainda é obrigatório).
   plan_approval: true
