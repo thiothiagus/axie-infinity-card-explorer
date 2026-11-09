@@ -126,4 +126,6 @@ cat src/data/README.md | grep -i "fonte\|source\|extração\|extraction"
 
 **TESTING (2026-11-08 23:30)**: `riteward check` inicialmente falhou em 2 gates — lint (import não utilizado `Stats` em `scripts/extract-classic-cards.ts`, corrigido) e test (3 testes em `src/App.test.tsx` com expectativas obsoletas do dataset antigo: contagem 198→222, filtro Classic 6→30 com "Mossy Leaf"→"Serious", e modal que usava nomes de cartas Classic agora colidindo com nomes Origin v3). Correção do modal: usar `getAllByRole('button', {name: /ver detalhes de/i})[0]` em vez de nome específico, evitando a colisão entre gerações. Todos os gates verdes (test 118/118, lint, typecheck).
 
+**REVIEW (2026-11-08)**: `src/data/cards.json.backup-2026-11-08` (2210 linhas) foi registrado formalmente como dívida de refatoração via `riteward refactor scan --create-tasks` (task-010). O sufixo `.backup-2026-11-08` não casa o padrão `src/data/**/*.json` de `ignore_files`, por isso o arquivo bloqueava a transição. A dívida fica registrada; o backup original permanece preservado na história do git (commit `c04fb2a`).
+
 _Notas sobre o progresso aqui; decisões relevantes viram registros via `riteward decision create`._
