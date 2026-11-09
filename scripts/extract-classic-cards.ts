@@ -6,7 +6,7 @@
  * Template da estrutura Card para facilitar transcrição
  */
 
-import type { Card, Stats } from '../src/types/card'
+import type { Card } from '../src/types/card'
 
 // Template para transcrição manual
 const cardTemplate: Card = {
