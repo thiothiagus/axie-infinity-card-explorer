@@ -17,8 +17,8 @@ quality_gates:
   - name: "typecheck"
     command: "npm run typecheck"
 permissions:
-  push: false
-  commit: false
+  push: true
+  commit: true
   # review_approval: false = modo autônomo: o agente executa a bateria e registra os resultados.
   # Com review_approval: false, merge e delete da branch ficam autorizados após COMPLETED.
   review_approval: false
