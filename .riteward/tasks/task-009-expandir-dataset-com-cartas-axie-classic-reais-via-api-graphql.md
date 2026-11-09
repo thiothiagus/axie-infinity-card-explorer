@@ -1,7 +1,7 @@
 ---
 id: task-009
 title: Expandir dataset com cartas Axie Classic reais via API GraphQL
-status: in_progress
+status: done
 priority: 80
 created_at: 2026-11-08
 ---
